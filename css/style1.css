@@ -12,14 +12,31 @@ h2,h3{
 	color:red;
 }
 table, td, th {
-  border: 1px solid;
+  border: 2px solid;
 }
 
 .bang1{
   border-collapse: collapse;
   width: 100%;
+  background-color:#b0e0e6;
 }
 .bang2{
   border-collapse: collapse;
   width:30%;
+  text-align: center;
+  background-color:#b0e0e6;
+  padding: 20px;
+}
+img {
+  padding: 0px;
+  width: 250px;
+  height: 200px;
+}
+p2{
+	text-align: left;
+	font-size: 20px;
+}
+p1{
+	text-align: left;
+	font-size: 30px;
 }
