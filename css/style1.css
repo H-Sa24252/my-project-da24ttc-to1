@@ -1,1 +1,25 @@
-﻿
+﻿body {
+  background-color: #e0f7ff;
+}
+h1{
+	background-color: yellow;
+	text-align: center;
+	text-shadow: 2px 2px 5px blue;
+	font-size: 60px;
+	color:blue;
+}
+h2,h3{
+	color:red;
+}
+table, td, th {
+  border: 1px solid;
+}
+
+.bang1{
+  border-collapse: collapse;
+  width: 100%;
+}
+.bang2{
+  border-collapse: collapse;
+  width:30%;
+}
