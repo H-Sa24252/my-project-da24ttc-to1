@@ -5,74 +5,47 @@
     <title>Form đăng ký</title>
     <link rel="stylesheet" href="../css/style3.css">
 </head>
-
 <body>
-
 <div class="container">
     <h2>Form Đăng Ký Sinh Viên</h2>
-
     <form>
-
-        <!-- Họ tên -->
         <label>Họ và tên:</label>
         <input type="text" name="hoten" placeholder="Nhập họ tên">
-
-        <!-- MSSV -->
         <label>MSSV:</label>
         <input type="text" name="mssv" placeholder="Nhập MSSV">
-
-        <!-- Lớp -->
         <label>Lớp:</label>
         <input type="text" name="lop" placeholder="Nhập lớp">
-
-        <!-- Giới tính -->
         <label>Giới tính:</label>
         <div class="inline">
             <input type="radio" name="gioitinh"> Nam
             <input type="radio" name="gioitinh"> Nữ
         </div>
-
-        <!-- Ngày sinh -->
         <label>Ngày sinh:</label>
         <input type="date" name="ngaysinh">
-
-        <!-- Điện thoại -->
         <label>Số điện thoại:</label>
         <input type="tel" name="sdt" placeholder="Nhập số điện thoại">
-
-        <!-- Email -->
         <label>Email:</label>
         <input type="email" name="email" placeholder="Nhập email">
-
-        <!-- Chuyên ngành -->
         <label>Chuyên ngành:</label>
         <div class="inline">
             <input type="checkbox"> CNTT
             <input type="checkbox"> Kinh tế
             <input type="checkbox"> Ngoại ngữ
         </div>
-
-        <!-- Select box -->
         <label>Quê quán:</label>
         <select>
             <option>-- Chọn tỉnh --</option>
-            <option>Trà Vinh</option>
+            <option>Vĩnh Long</option>
             <option>Cần Thơ</option>
             <option>TP.HCM</option>
         </select>
-
-        <!-- Upload ảnh -->
         <label>Hình ảnh:</label>
         <input type="file" accept="image/*">
-
-        <!-- Nút -->
         <div class="btn">
             <input type="submit" value="Đăng ký">
             <input type="reset" value="Nhập lại">
         </div>
-
     </form>
 </div>
-
 </body>
 </html>
