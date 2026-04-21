@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Bảng cửu chương</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+       <form id="formInBCC">
+        <h2>In Bảng cửu chương</h2>
+        <label for="txtNhapSo">Nhập số:</label>
+        <input type="text" id="txtNhapSo" name="txtNhapSo">
+        <button type="submit" onclick="inBCC(event)">In</button>
+        <div id="bcc">
+
+        </div>
+       </form>
+       <script>
+         function inBCC(event){
+         const frm = document.forms["formInBCC"];
+         frm.onsubmit = function(e)
+          e.preventDefault();
+          const so = parseInt(document.getElementById("txtNhapSo").value);
+         let kq = " ";
+         for(let i=1;i<=10;i++){
+            kq += so + "x" + i + " = " + (so* i) +"<br>";
+         }
+         document.getElementById("bcc").innerHTML = kq;}
+       </script>
+    </body>
+</html>
