@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>HTML DOM</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/style6.css">
+    </head>
+    <body>
+       <script>
+        const newDiv = document.createElement("div");
+        const newText = document.createTextNode("Thành công");
+        const newImage = document.createElement("");
+        //Thêm thuộc tính cho newDiv
+        newDiv.setAttribute("class","product-item");
+        //Gán newText vào newDiv
+        newDiv.appendChild(newText);
+        //Gán vào body
+        document.body.appendChild(newDiv);
+       </script>
+    </body>
+</html>
