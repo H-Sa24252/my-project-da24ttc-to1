@@ -7,23 +7,84 @@
     </head>
     <body>
        <script>
+        //Tạo 1 giỏ hàng để chứa sản phẩm
+        const cart = [];
         //Tạo thẻ div
         const newDiv = document.createElement("div");
-        //Tạo text node
-        const newText = document.createTextNode("Thành công");
-        //Tạo thẻ img
-        const newImage = document.createElement("img");
-        //Thêm thuộc tính cho newImage
-        newImage.setAttribute("src","../assets/images/hoa-sen.jpg");
-        //Thêm thuộc tính alt và width cho newImage
-        newImage.setAttribute("alt","Hoa sen");
-        newImage.setAttribute("width","200px");
         //Thêm thuộc tính cho newDiv
         newDiv.setAttribute("class","product-item");
-        //Gán newText vào newDiv
-        newDiv.appendChild(newText);
-        //Gán newImage vào newDiv
-        newDiv.appendChild(newImage);
+        //Tạo thẻ div để chứa hình ảnh
+        const productImage = document.createElement("div");
+        //Thêm thuộc tính cho productImage
+        productImage.setAttribute("class","product-image");
+        //Tạo hình ảnh
+        const productImageNode = document.createElement("img");
+        //Thêm thuộc tính src cho productImageNode
+        productImageNode.setAttribute("src","../assets/images/hoa-sen.jpg");
+        //Thêm thuộc tính alt cho productImageNode
+        productImageNode.setAttribute("alt","Hoa sen");
+        //Thêm thuộc tính width cho productImageNode
+        productImageNode.setAttribute("width","200px");
+        //Thêm thuộc tính height cho productImageNode
+        productImageNode.setAttribute("height","200px");
+        //Gán productImageNode vào productImage
+        productImage.appendChild(productImageNode);
+        //Tạo thẻ div để chứa thông tin sản phẩm
+        const productInfo = document.createElement("div");
+        //Thêm thuộc tính cho productInfo
+        productInfo.setAttribute("class","product-info");
+        //Tạo thẻ p để chứa tên sản phẩm
+        const productName = document.createElement("p");
+        //Thêm thuộc tính cho productName
+        productName.setAttribute("class","product-name");
+        //Tạo text node để chứa tên sản phẩm
+        const productNameNode = document.createTextNode("Hoa sen");
+        //Gán productNameNode vào productName
+        productName.appendChild(productNameNode);
+        //Gán productName vào productInfo
+        productInfo.appendChild(productName);
+        //Tạo thẻ p để chứa giá sản phẩm
+        const productPrice = document.createElement("p");
+        //Thêm thuộc tính cho productPrice
+        productPrice.setAttribute("class","product-price");
+        //Tạo text node để chứa giá sản phẩm
+        const productPriceNode = document.createTextNode("1.500.000đ/bó");
+        //Gán productPriceNode vào productPrice
+        productPrice.appendChild(productPriceNode);
+        //Gán productPrice vào productInfo
+        productInfo.appendChild(productPrice);
+        //Tạo link để xem chi tiết sản phẩm
+        const productLink = document.createElement("a");
+        //Thêm thuộc tính cho productLink
+        productLink.setAttribute("href","https://linhflower.com/thanh-tao-sen/");
+        //Tạo text node để chứa nội dung link
+        const productLinkNode = document.createTextNode("Xem chi tiết");
+        //Gán productLinkNode vào productLink
+        productLink.appendChild(productLinkNode);
+        //Gán productLink vào productInfo
+        productInfo.appendChild(productLink);
+        //Tạo hình ảnh sản phẩm thứ 2
+        const productImage2 = document.createElement("div");
+        //Thêm thuộc tính cho productImage2
+        productImage2.setAttribute("class","product-image");
+        //Tạo hình ảnh
+        const productImageNode2 = document.createElement("img");
+        //Thêm thuộc tính src cho productImageNode2
+        productImageNode2.setAttribute("src","../assets/images/hoa-sen2.jpg");
+        //Thêm thuộc tính alt cho productImageNode2
+        productImageNode2.setAttribute("alt","Hoa sen 2");
+        //Thêm thuộc tính width cho productImageNode2
+        productImageNode2.setAttribute("width","200px");
+        //Thêm thuộc tính height cho productImageNode2
+        productImageNode2.setAttribute("height","200px");
+        //Gán productImageNode2 vào productImage2
+        productImage2.appendChild(productImageNode2);
+        //Gán productImage vào newDiv
+        newDiv.appendChild(productImage);
+        //Gán productInfo vào newDiv
+        newDiv.appendChild(productInfo);
+        //Gán productImage2 vào newDiv
+        newDiv.appendChild(productImage2);
         //Gán vào body
         document.body.appendChild(newDiv);
        </script>

@@ -12,20 +12,27 @@
         <button type="submit" onclick="inBCC(event)">In</button>
         </form>
         <div id="kq">
+        <script>
+        function inBCC(event) {
+    event.preventDefault(); // Ngăn trang web tải lại
+    
+    let kq = "";
+    
+    // Sửa tên cho đúng với id="formInBCC" ở dòng 8
+    const myForm = document.forms['formInBCC']; 
+    
+    // Truy cập vào ô input (giả sử ô input của bạn có name hoặc id là 'so')
+    // Nếu bạn chưa đặt name cho input, hãy dùng document.getElementById
+    const myTextField = myForm.elements['ten_o_input_cua_ban']; 
 
-<script>
-
-function inBCC(event)
-        {
-         event.preventDefault();
-        let kq ="";
-        const myForm = document.forms['formInBangCC'];
-        const myTextField = myForm.elements['textfield'];
-        let num = parseInt(myTextField.value);
-            for(let i = 1; i <= 10; i++){
-            kq += num + "x" + i + " = " + (num* i) +"<br>";
-         }
-         document.getElementById("kq").innerHTML = kq;}
+    let num = parseInt(myTextField.value);
+    
+    for(let i = 1; i <= 10; i++) {
+        kq += num + " x " + i + " = " + (num * i) + "<br>";
+    }
+    
+    document.getElementById("kq").innerHTML = kq;
+    }
        </script>
        </div>
     </body>
