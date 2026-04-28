@@ -10,21 +10,23 @@
         <label for="txtNhapSo">Nhập số:</label>
         <input type="text" id="txtNhapSo" name="txtNhapSo">
         <button type="submit" onclick="inBCC(event)">In</button>
-        <div id="bcc">
+        </form>
+        <div id="kq">
 
-        </div>
-       </form>
-       <script>
-         function inBCC(event){
-         const frm = document.forms["formInBCC"];
-         frm.onsubmit = function(e)
-          e.preventDefault();
-          const so = parseInt(document.getElementById("txtNhapSo").value);
-         let kq = " ";
-         for(let i=1;i<=10;i++){
-            kq += so + "x" + i + " = " + (so* i) +"<br>";
+<script>
+
+function inBCC(event)
+        {
+         event.preventDefault();
+        let kq ="";
+        const myForm = document.forms['formInBangCC'];
+        const myTextField = myForm.elements['textfield'];
+        let num = parseInt(myTextField.value);
+            for(let i = 1; i <= 10; i++){
+            kq += num + "x" + i + " = " + (num* i) +"<br>";
          }
-         document.getElementById("bcc").innerHTML = kq;}
+         document.getElementById("kq").innerHTML = kq;}
        </script>
+       </div>
     </body>
 </html>

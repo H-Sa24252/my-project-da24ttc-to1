@@ -7,13 +7,23 @@
     </head>
     <body>
        <script>
+        //Tạo thẻ div
         const newDiv = document.createElement("div");
+        //Tạo text node
         const newText = document.createTextNode("Thành công");
-        const newImage = document.createElement("");
+        //Tạo thẻ img
+        const newImage = document.createElement("img");
+        //Thêm thuộc tính cho newImage
+        newImage.setAttribute("src","../assets/images/hoa-sen.jpg");
+        //Thêm thuộc tính alt và width cho newImage
+        newImage.setAttribute("alt","Hoa sen");
+        newImage.setAttribute("width","200px");
         //Thêm thuộc tính cho newDiv
         newDiv.setAttribute("class","product-item");
         //Gán newText vào newDiv
         newDiv.appendChild(newText);
+        //Gán newImage vào newDiv
+        newDiv.appendChild(newImage);
         //Gán vào body
         document.body.appendChild(newDiv);
        </script>

@@ -1,3 +1,8 @@
-div.product-item{
-    color:blue
+.product-item{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background:cyan;
+    color:blue;
 }
