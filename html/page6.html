@@ -7,86 +7,69 @@
     </head>
     <body>
        <script>
-        //Tạo 1 giỏ hàng để chứa sản phẩm
-        const cart = [];
-        //Tạo thẻ div
-        const newDiv = document.createElement("div");
-        //Thêm thuộc tính cho newDiv
-        newDiv.setAttribute("class","product-item");
-        //Tạo thẻ div để chứa hình ảnh
-        const productImage = document.createElement("div");
-        //Thêm thuộc tính cho productImage
-        productImage.setAttribute("class","product-image");
-        //Tạo hình ảnh
-        const productImageNode = document.createElement("img");
-        //Thêm thuộc tính src cho productImageNode
-        productImageNode.setAttribute("src","../assets/images/hoa-sen.jpg");
-        //Thêm thuộc tính alt cho productImageNode
-        productImageNode.setAttribute("alt","Hoa sen");
-        //Thêm thuộc tính width cho productImageNode
-        productImageNode.setAttribute("width","200px");
-        //Thêm thuộc tính height cho productImageNode
-        productImageNode.setAttribute("height","200px");
-        //Gán productImageNode vào productImage
-        productImage.appendChild(productImageNode);
-        //Tạo thẻ div để chứa thông tin sản phẩm
-        const productInfo = document.createElement("div");
-        //Thêm thuộc tính cho productInfo
-        productInfo.setAttribute("class","product-info");
-        //Tạo thẻ p để chứa tên sản phẩm
-        const productName = document.createElement("p");
-        //Thêm thuộc tính cho productName
-        productName.setAttribute("class","product-name");
-        //Tạo text node để chứa tên sản phẩm
-        const productNameNode = document.createTextNode("Hoa sen");
-        //Gán productNameNode vào productName
-        productName.appendChild(productNameNode);
-        //Gán productName vào productInfo
-        productInfo.appendChild(productName);
-        //Tạo thẻ p để chứa giá sản phẩm
-        const productPrice = document.createElement("p");
-        //Thêm thuộc tính cho productPrice
-        productPrice.setAttribute("class","product-price");
-        //Tạo text node để chứa giá sản phẩm
-        const productPriceNode = document.createTextNode("1.500.000đ/bó");
-        //Gán productPriceNode vào productPrice
-        productPrice.appendChild(productPriceNode);
-        //Gán productPrice vào productInfo
-        productInfo.appendChild(productPrice);
-        //Tạo link để xem chi tiết sản phẩm
-        const productLink = document.createElement("a");
-        //Thêm thuộc tính cho productLink
-        productLink.setAttribute("href","https://linhflower.com/thanh-tao-sen/");
-        //Tạo text node để chứa nội dung link
-        const productLinkNode = document.createTextNode("Xem chi tiết");
-        //Gán productLinkNode vào productLink
-        productLink.appendChild(productLinkNode);
-        //Gán productLink vào productInfo
-        productInfo.appendChild(productLink);
-        //Tạo hình ảnh sản phẩm thứ 2
-        const productImage2 = document.createElement("div");
-        //Thêm thuộc tính cho productImage2
-        productImage2.setAttribute("class","product-image");
-        //Tạo hình ảnh
-        const productImageNode2 = document.createElement("img");
-        //Thêm thuộc tính src cho productImageNode2
-        productImageNode2.setAttribute("src","../assets/images/hoa-sen2.jpg");
-        //Thêm thuộc tính alt cho productImageNode2
-        productImageNode2.setAttribute("alt","Hoa sen 2");
-        //Thêm thuộc tính width cho productImageNode2
-        productImageNode2.setAttribute("width","200px");
-        //Thêm thuộc tính height cho productImageNode2
-        productImageNode2.setAttribute("height","200px");
-        //Gán productImageNode2 vào productImage2
-        productImage2.appendChild(productImageNode2);
-        //Gán productImage vào newDiv
-        newDiv.appendChild(productImage);
-        //Gán productInfo vào newDiv
-        newDiv.appendChild(productInfo);
-        //Gán productImage2 vào newDiv
-        newDiv.appendChild(productImage2);
-        //Gán vào body
-        document.body.appendChild(newDiv);
+        //tạo danh sách sản phẩm
+        const products = [
+            {
+                ten: "Hoa sen",
+                gia: "1.500.000đ/bó",
+                hinh_anh: "../assets/images/hoa-sen.jpg",
+                lien_ket: "https://linhflower.com/thanh-tao-sen/"
+            },
+            {
+                ten: "Hoa hồng",
+                gia: "2.000.000đ/bó",
+                hinh_anh: "../assets/images/hoa-hong.jpg",
+                lien_ket: "https://linhflower.com/bo-hoa-hong-dep-nhat-tang-nguoi-yeu/"
+            },
+            {
+                ten: "Hoa ly",
+                gia: "500.000đ/bó",
+                hinh_anh: "../assets/images/hoa-ly.jpg",
+                lien_ket: "https://linhflower.com/ly-hong-cuoi/"
+            }
+        ];
+        //Duyệt qua danh sách sản phẩm và tạo phần tử HTML cho từng sản phẩm
+        products.forEach(product => {
+            //Tạo khung chính để chứa sản phẩm
+            const productItem = document.createElement("div");
+            productItem.setAttribute("class", "product-item");
+            //Tạo phần tử hình ảnh
+            const productImage = document.createElement("div");
+            productImage.setAttribute("class", "product-image");
+            //Tạo thẻ img và gán thuộc tính src
+            const img = document.createElement("img");
+            img.setAttribute("src", product.hinh_anh);
+            img.setAttribute("alt", product.ten);
+            img.setAttribute("width", "500px");
+            img.setAttribute("height", "500px");
+            //Gán thẻ img vào phần tử hình ảnh
+            productImage.appendChild(img);
+            //Tạo phần tử thông tin sản phẩm
+            const productInfo = document.createElement("div");  
+            productInfo.setAttribute("class", "product-info");
+            //Tạo thẻ p để hiển thị tên sản phẩm
+            const productName = document.createElement("p");
+            productName.setAttribute("class", "product-name");
+            productName.innerText = product.ten;
+            //Tạo thẻ p để hiển thị giá sản phẩm
+            const productPrice = document.createElement("p");
+            productPrice.setAttribute("class", "product-price");
+            productPrice.innerText = product.gia;
+            //Tạo thẻ a để hiển thị liên kết đến trang chi tiết sản phẩm
+            const productLink = document.createElement("a");
+            productLink.setAttribute("class", "product-link");
+            productLink.setAttribute("href", product.lien_ket);
+            productLink.innerText = "Xem chi tiết";
+            //Gán các phần tử vào phần tử thông tin sản phẩm
+            productInfo.appendChild(productName);
+            productInfo.appendChild(productPrice);
+            productInfo.appendChild(productLink);
+            //Gán các phần tử vào khung chính
+            productItem.appendChild(productImage);  
+            productItem.appendChild(productInfo);
+            //Gán khung chính vào body
+            document.body.appendChild(productItem);
+        });
        </script>
     </body>
 </html>
