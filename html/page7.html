@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Cửa hàng hoa tươi</title>
+</head>
+<body>
+    <div class="product-list row row-cols-1 row-cols-4 g-4" id="product-list"></div>
+    <script>
+        productList.forEach(function(item)
+        { 
+            //truyền thuộc tính vào hàm
+            addProduct(item.id, item.name, item.price, item.image, item.descr);
+        });  
+    </script>
+</body>
+</html>
