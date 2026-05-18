@@ -1,121 +1,178 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <title>HTML DOM</title>
-        <meta charset="utf-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Latest compiled and minified CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Latest compiled JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    </head>
-    <body>
-       <script>
-        //tạo danh sách sản phẩm
+<head>
+    <title>HTML DOM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* Chia đúng 5 sản phẩm trên màn hình lớn */
+        @media (min-width: 1200px){
+            .col-xl-custom{
+                width: 20%;
+            }
+        }
+
+        .card-img-top{
+            height: 250px;
+            object-fit: cover;
+        }
+
+        body{
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid py-4">
+        <div class="row g-4 justify-content-center" id="product-list"></div>
+    </div>
+
+    <script>
+
+        // Tạo danh sách sản phẩm
         const products = [
-    {
-        ten: "Hoa sen",
-        gia: "1.500.000đ/bó",
-        hinh_anh: "../assets/images/hoa-sen.jpg",
-        lien_ket: "https://linhflower.com/thanh-tao-sen/"
-    },
-    {
-        ten: "Hoa hồng đỏ",
-        gia: "2.000.000đ/bó",
-        hinh_anh: "../assets/images/hoa-hong.jpg",
-        lien_ket: "https://linhflower.com/bo-hoa-hong-dep-nhat-tang-nguoi-yeu/"
-    },
-    {
-        ten: "Hoa ly",
-        gia: "500.000đ/bó",
-        hinh_anh: "../assets/images/hoa-ly.jpg",
-        lien_ket: "https://linhflower.com/ly-hong-cuoi/"
-    },
-    {
-        ten: "Hoa hướng dương",
-        gia: "700.000đ/bó",
-        hinh_anh: "../assets/images/hoa-huong-duong.jpg",
-        lien_ket: "https://linhflower.com/bo-hoa-huong-duong-tang-sinh-nhat/"
-    },
-    {
-        ten: "Hoa cúc (10 cành)",
-        gia: "52.000đ/bó",
-        hinh_anh: "../assets/images/hoa-cuc.jpg",
-        lien_ket: "https://dalat.flowers/302/9516_cuc-rossi-hong-10-canh.html"
-    },
-    {
-        ten: "Hoa sao xanh",
-        gia: "71.000đ/bó",
-        hinh_anh: "../assets/images/hoa-sao.jpg",
-        lien_ket: "https://dalat.flowers/340/13333_hoa-sao-xanh-810-canh.html"
-    },
-    {
-        ten: "Thủy tiên trắng",
-        gia: "60.000đ/bó",
-        hinh_anh: "../assets/images/thuy-tien-trang.jpg",
-        lien_ket: "https://dalat.flowers/297/14277_thuy-tien-trang-10-canh.html"
-    },
-    {
-        ten: "Hoa bất tử",
-        gia: "100.000đ/bó",
-        hinh_anh: "../assets/images/hoa-bat-tu.jpg",
-        lien_ket: "https://dalat.flowers/302/10651_hoa-bat-tu-1kg.html"
-    },
-    {
-        ten: "Hoa lan",
-        gia: "63.000đ/bó",
-        hinh_anh: "../assets/images/hoa-lan.png",
-        lien_ket: "https://dalat.flowers/298/6516_lan-phuong-vy-10-canh.html"
-    },
-    {
-        ten: "Hoa cẩm chướng",
-        gia: "77.000đ/bó",
-        hinh_anh: "../assets/images/hoa-cam-chuong.png",
-        lien_ket: "https://dalat.flowers/269/15796_cam-chuong-don-cam-nhat-20-canh.html"
-    }
-    ];
-        //Duyệt qua danh sách sản phẩm và tạo phần tử HTML cho từng sản phẩm
+            {
+                ten: "Hoa sen",
+                gia: "1.500.000đ/bó",
+                hinh_anh: "../assets/images/hoa-sen.jpg",
+                lien_ket: "https://linhflower.com/thanh-tao-sen/"
+            },
+            {
+                ten: "Hoa hồng đỏ",
+                gia: "2.000.000đ/bó",
+                hinh_anh: "../assets/images/hoa-hong.jpg",
+                lien_ket: "https://linhflower.com/bo-hoa-hong-dep-nhat-tang-nguoi-yeu/"
+            },
+            {
+                ten: "Hoa ly",
+                gia: "500.000đ/bó",
+                hinh_anh: "../assets/images/hoa-ly.jpg",
+                lien_ket: "https://linhflower.com/ly-hong-cuoi/"
+            },
+            {
+                ten: "Hoa hướng dương",
+                gia: "700.000đ/bó",
+                hinh_anh: "../assets/images/hoa-huong-duong.jpg",
+                lien_ket: "https://linhflower.com/bo-hoa-huong-duong-tang-sinh-nhat/"
+            },
+            {
+                ten: "Hoa cúc (10 cành)",
+                gia: "52.000đ/bó",
+                hinh_anh: "../assets/images/hoa-cuc.jpg",
+                lien_ket: "https://dalat.flowers/302/9516_cuc-rossi-hong-10-canh.html"
+            },
+            {
+                ten: "Hoa sao xanh",
+                gia: "71.000đ/bó",
+                hinh_anh: "../assets/images/hoa-sao.jpg",
+                lien_ket: "https://dalat.flowers/340/13333_hoa-sao-xanh-810-canh.html"
+            },
+            {
+                ten: "Thủy tiên trắng",
+                gia: "60.000đ/bó",
+                hinh_anh: "../assets/images/thuy-tien-trang.jpg",
+                lien_ket: "https://dalat.flowers/297/14277_thuy-tien-trang-10-canh.html"
+            },
+            {
+                ten: "Hoa bất tử",
+                gia: "100.000đ/bó",
+                hinh_anh: "../assets/images/hoa-bat-tu.jpg",
+                lien_ket: "https://dalat.flowers/302/10651_hoa-bat-tu-1kg.html"
+            },
+            {
+                ten: "Hoa lan",
+                gia: "63.000đ/bó",
+                hinh_anh: "../assets/images/hoa-lan.png",
+                lien_ket: "https://dalat.flowers/298/6516_lan-phuong-vy-10-canh.html"
+            },
+            {
+                ten: "Hoa cẩm chướng",
+                gia: "77.000đ/bó",
+                hinh_anh: "../assets/images/hoa-cam-chuong.png",
+                lien_ket: "https://dalat.flowers/269/15796_cam-chuong-don-cam-nhat-20-canh.html"
+            }
+        ];
+
+        // Lấy nơi chứa sản phẩm
+        const productList = document.getElementById("product-list");
+
+        // Duyệt danh sách sản phẩm
         products.forEach(product => {
-            
-            //Tạo khung chính để chứa sản phẩm
+
+            // Cột Bootstrap
             const productItem = document.createElement("div");
-            productItem.setAttribute("class", "product-item");
-            //Tạo phần tử hình ảnh
+            productItem.setAttribute(
+                "class",
+                "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-custom"
+            );
+
+            // Card Bootstrap
+            const card = document.createElement("div");
+            card.setAttribute("class", "card h-100 shadow-sm");
+
+            // Khung ảnh
             const productImage = document.createElement("div");
-            productImage.setAttribute("class", "product-image");
-            //Tạo thẻ img và gán thuộc tính src
+            productImage.setAttribute("class", "text-center");
+
+            // Ảnh sản phẩm
             const img = document.createElement("img");
             img.setAttribute("src", product.hinh_anh);
             img.setAttribute("alt", product.ten);
-            img.setAttribute("class", "object-fit-cover");
-            //Gán thẻ img vào phần tử hình ảnh
+            img.setAttribute("class", "card-img-top");
+
+            // Thêm ảnh vào khung ảnh
             productImage.appendChild(img);
-            //Tạo phần tử thông tin sản phẩm
-            const productInfo = document.createElement("div");  
-            productInfo.setAttribute("class", "product-info ");
-            //Tạo thẻ p để hiển thị tên sản phẩm
+
+            // Thông tin sản phẩm
+            const productInfo = document.createElement("div");
+            productInfo.setAttribute(
+                "class",
+                "card-body d-flex flex-column text-center"
+            );
+
+            // Tên sản phẩm
             const productName = document.createElement("p");
-            productName.setAttribute("class", "product-name");
+            productName.setAttribute("class", "card-title fw-bold");
             productName.innerText = product.ten;
-            //Tạo thẻ p để hiển thị giá sản phẩm
+
+            // Giá sản phẩm
             const productPrice = document.createElement("p");
-            productPrice.setAttribute("class", "product-price");
+            productPrice.setAttribute("class", "text-danger mb-3");
             productPrice.innerText = product.gia;
-            //Tạo thẻ a để hiển thị liên kết đến trang chi tiết sản phẩm
+
+            // Nút xem chi tiết
             const productLink = document.createElement("a");
-            productLink.setAttribute("class", "product-link");
+            productLink.setAttribute("class", "btn btn-primary mt-auto");
             productLink.setAttribute("href", product.lien_ket);
+            productLink.setAttribute("target", "_blank");
             productLink.innerText = "Xem chi tiết";
-            //Gán các phần tử vào phần tử thông tin sản phẩm
+
+            // Thêm vào phần thông tin
             productInfo.appendChild(productName);
             productInfo.appendChild(productPrice);
             productInfo.appendChild(productLink);
-            //Gán các phần tử vào khung chính
-            productItem.appendChild(productImage);  
-            productItem.appendChild(productInfo);
-            //Gán khung chính vào body
-            document.body.appendChild(productItem);
+
+            // Gắn vào card
+            card.appendChild(productImage);
+            card.appendChild(productInfo);
+
+            // Gắn card vào cột
+            productItem.appendChild(card);
+
+            // Hiển thị ra giao diện
+            productList.appendChild(productItem);
         });
-       </script>
-    </body>
+
+    </script>
+
+</body>
 </html>

@@ -1,0 +1,61 @@
+const productList = document.getElementById("product-list");
+
+products.forEach(product => {
+
+    const productItem = document.createElement("div");
+    productItem.setAttribute(
+        "class",
+        "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-custom"
+    );
+
+    const card = document.createElement("div");
+    card.setAttribute("class", "card h-100 shadow-sm border-0");
+
+    // Ảnh
+    const img = document.createElement("img");
+    img.setAttribute("src", product.hinh_anh);
+    img.setAttribute("class", "card-img-top");
+
+    // Body
+    const cardBody = document.createElement("div");
+    cardBody.setAttribute(
+        "class",
+        "card-body d-flex flex-column text-center"
+    );
+
+    // Tên
+    const productName = document.createElement("h5");
+    productName.setAttribute("class", "fw-bold");
+    productName.innerText = product.ten;
+
+    // Giá
+    const productPrice = document.createElement("p");
+    productPrice.setAttribute("class", "text-danger fw-bold");
+    productPrice.innerText = product.gia;
+
+    // Nút chi tiết
+    const detailButton = document.createElement("a");
+    detailButton.setAttribute(
+        "class",
+        "btn btn-primary mt-auto"
+    );
+
+    detailButton.setAttribute(
+        "href",
+        `product-detail.html?id=${product.id}`
+    );
+
+    detailButton.innerText = "Xem chi tiết";
+
+    // Gắn phần tử
+    cardBody.appendChild(productName);
+    cardBody.appendChild(productPrice);
+    cardBody.appendChild(detailButton);
+
+    card.appendChild(img);
+    card.appendChild(cardBody);
+
+    productItem.appendChild(card);
+
+    productList.appendChild(productItem);
+});

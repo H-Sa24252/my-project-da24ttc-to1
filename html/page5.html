@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <title>Bảng cửu chương</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-       <form id="formInBCC">
-        <h2>In Bảng cửu chương</h2>
-        <label for="txtNhapSo">Nhập số:</label>
-        <input type="text" id="txtNhapSo" name="txtNhapSo">
-        <button type="submit" onclick="inBCC(event)">In</button>
-        </form>
-        <div id="kq">
-        <script>
-        function inBCC(event) {
-    event.preventDefault(); // Ngăn trang web tải lại
+<head>
     
-    let kq = "";
-    
-    // Sửa tên cho đúng với id="formInBCC" ở dòng 8
-    const myForm = document.forms['formInBCC']; 
-    
-    // Truy cập vào ô input (giả sử ô input của bạn có name hoặc id là 'so')
-    // Nếu bạn chưa đặt name cho input, hãy dùng document.getElementById
-    const myTextField = myForm.elements['ten_o_input_cua_ban']; 
+    <title>Bảng cửu chương</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../CSS/style4.css">
+</head>
+<body>
 
-    let num = parseInt(myTextField.value);
-    
-    for(let i = 1; i <= 10; i++) {
-        kq += num + " x " + i + " = " + (num * i) + "<br>";
+<div class="container">
+
+    <form id = "bangcuuchuong">
+        <h2 class = "title"> In bảng cửu chương</h2>
+    <div class="form">
+         <label for="number">Nhập số:</label>
+         <input type="number" id="number" placeholder="Nhập số">
+         <button type="button" onclick="inBCC()">In</button>
+    </div>
+        <div id="kq">
+    </form>
+    <script>
+    function inBCC(){
+    const myfrm=document.forms["bangcuuchuong"];
+    const mytextfield=myfrm.elements[0];
+    let num= parseInt(document.getElementById("number").value);
+    let kq="";
+    for( let i=1; i<11 ;i++ )
+    {
+         
+      kq+=num + " x "+ i +" = " + (num * i) + "<br>";    
+
     }
-    
-    document.getElementById("kq").innerHTML = kq;
+    document.getElementById("kq").innerHTML=kq;
     }
-       </script>
-       </div>
-    </body>
+    </script>
+</div>
+</body>
 </html>
